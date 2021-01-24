@@ -602,7 +602,7 @@ namespace 高雄榮總屏東分院_訂單管理系統
         }
         private void plC_Button_下訂單_藥品搜尋_藥品名稱_btnClick(object sender, EventArgs e)
         {
-            this.sqL_DataGridView_下訂單_藥品資料.SQL_GetRows(enum_藥品資料.藥品名稱.GetEnumName(), comboBox_下訂單_藥品搜尋_藥品名稱.Text, true);
+            this.sqL_DataGridView_下訂單_藥品資料.SQL_GetRowsByLike(enum_藥品資料.藥品名稱.GetEnumName(), comboBox_下訂單_藥品搜尋_藥品名稱.Text, true);
         }
         private void plC_Button_下訂單_藥品搜尋_藥品條碼_btnClick(object sender, EventArgs e)
         {

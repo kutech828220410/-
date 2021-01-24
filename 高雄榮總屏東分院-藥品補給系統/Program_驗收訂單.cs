@@ -92,6 +92,7 @@ namespace 高雄榮總屏東分院_訂單管理系統
             批號,
             已結清,
             合約廠商,
+            折讓後總價,
         }
         string[] 驗收訂單_發票內容_Data
         {
@@ -117,6 +118,7 @@ namespace 高雄榮總屏東分院_訂單管理系統
                 _驗收訂單_發票內容_Data[(int)enum_驗收訂單_發票內容.批號] = this.textBox_驗收訂單_發票內容_批號.Text;
                 _驗收訂單_發票內容_Data[(int)enum_驗收訂單_發票內容.已結清] = this.CheckBox_驗收訂單_發票內容_已結清.Checked.ToString();
                 _驗收訂單_發票內容_Data[(int)enum_驗收訂單_發票內容.合約廠商] = this.textBox_驗收訂單_發票內容_合約廠商.Text;
+                _驗收訂單_發票內容_Data[(int)enum_驗收訂單_發票內容.折讓後總價] = this.textBox_驗收訂單_發票內容_折讓後總價.Text;
                 return _驗收訂單_發票內容_Data;
             }
             set
@@ -154,7 +156,7 @@ namespace 高雄榮總屏東分院_訂單管理系統
                         List<object[]> list_value = this.sqL_DataGridView_藥品資料.SQL_GetRows(enum_藥品資料.藥品碼.GetEnumName(), this.textBox_驗收訂單_發票內容_藥品碼.Text, false);
                         if (list_value.Count > 0) this.textBox_驗收訂單_發票內容_合約廠商.Text = list_value[0][(int)enum_藥品資料.合約廠商].ObjectToString();
                     }
-                   
+                    this.textBox_驗收訂單_發票內容_折讓後總價.Text = value[(int)enum_驗收訂單_發票內容.折讓後總價];
                 }));
             }
         }
@@ -375,7 +377,7 @@ namespace 高雄榮總屏東分院_訂單管理系統
             {
                 string str_交易筆數 = "";
                 int 交易筆數 = 0;
-                int 單價_temp = 0;
+                double 單價_temp = 0;
                 int 數量_temp = 0;
 
 
@@ -394,15 +396,9 @@ namespace 高雄榮總屏東分院_訂單管理系統
                         {
                             string[] _List_驗收訂單_發票內容_Data = this.List_驗收訂單_發票內容_Data[i];
                             _List_驗收訂單_發票內容_Data[(int)enum_驗收訂單_發票內容.單價] = this.myInvoiceUI.Get_Invoice_Index(i, MyInvoiceUI.MyInvoiceUI.enum_單筆內容.單價);
-                            //_List_驗收訂單_發票內容_Data[(int)enum_驗收訂單_發票內容.數量] = this.myInvoiceUI.Get_Invoice_Index(i, MyInvoiceUI.MyInvoiceUI.enum_單筆內容.數量);
-
-                            if (int.TryParse(_List_驗收訂單_發票內容_Data[(int)enum_驗收訂單_發票內容.單價], out 單價_temp))
-                            {
-                                if (int.TryParse(_List_驗收訂單_發票內容_Data[(int)enum_驗收訂單_發票內容.數量], out 數量_temp))
-                                {
-                                    _List_驗收訂單_發票內容_Data[(int)enum_驗收訂單_發票內容.總價] = (單價_temp * 數量_temp).ToString();
-                                }
-                            }
+                            //if (_List_驗收訂單_發票內容_Data[(int)enum_驗收訂單_發票內容.數量] != "") _List_驗收訂單_發票內容_Data[(int)enum_驗收訂單_發票內容.數量] = this.myInvoiceUI.Get_Invoice_Index(i, MyInvoiceUI.MyInvoiceUI.enum_單筆內容.數量);
+                            _List_驗收訂單_發票內容_Data[(int)enum_驗收訂單_發票內容.總價] = this.myInvoiceUI.Get_Invoice_Contents(MyInvoiceUI.MyInvoiceUI.enum_發票內容.總計額);
+        
                             this.List_驗收訂單_發票內容_Data[i] = _List_驗收訂單_發票內容_Data;
                         }
                     
@@ -652,8 +648,8 @@ namespace 高雄榮總屏東分院_訂單管理系統
                         }
                         else
                         {
-                            int temp = 0;
-                            if (!int.TryParse(_驗收訂單_發票內容_Data[(int)enum_驗收訂單_發票內容.單價], out temp))
+                            double temp = 0;
+                            if (!double.TryParse(_驗收訂單_發票內容_Data[(int)enum_驗收訂單_發票內容.單價], out temp))
                             {
                                 List_error_msg_temp.Add("'" + enum_驗收訂單_發票內容.單價.GetEnumName() + "'" + "為非法字元");
                             }
@@ -665,8 +661,8 @@ namespace 高雄榮總屏東分院_訂單管理系統
                         }
                         else
                         {
-                            int temp = 0;
-                            if (!int.TryParse(_驗收訂單_發票內容_Data[(int)enum_驗收訂單_發票內容.總價], out temp))
+                            double temp = 0;
+                            if (!double.TryParse(_驗收訂單_發票內容_Data[(int)enum_驗收訂單_發票內容.總價], out temp))
                             {
                                 List_error_msg_temp.Add("'" + enum_驗收訂單_發票內容.總價.GetEnumName() + "'" + "為非法字元");
                             }
@@ -678,8 +674,8 @@ namespace 高雄榮總屏東分院_訂單管理系統
                         }
                         else
                         {
-                            int temp = 0;
-                            if (!int.TryParse(_驗收訂單_發票內容_Data[(int)enum_驗收訂單_發票內容.折讓金額], out temp))
+                            double temp = 0;
+                            if (!double.TryParse(_驗收訂單_發票內容_Data[(int)enum_驗收訂單_發票內容.折讓金額], out temp))
                             {
                                 List_error_msg_temp.Add("'" + enum_驗收訂單_發票內容.折讓金額.GetEnumName() + "'" + "為非法字元");
                             }
@@ -1489,16 +1485,16 @@ namespace 高雄榮總屏東分院_訂單管理系統
 
         private void textBox_驗收訂單_發票內容_數量_TextChanged(object sender, EventArgs e)
         {
-            int 數量_temp = 0;
-            int 單價_temp = 0;
-            int 折讓金額_temp = 0;
+            double 數量_temp = 0;
+            double 單價_temp = 0;
+            double 折讓金額_temp = 0;
             double 折讓後單價_temp = 0;
-            if (int.TryParse(textBox_驗收訂單_發票內容_數量.Text, out 數量_temp))
+            if (double.TryParse(textBox_驗收訂單_發票內容_數量.Text, out 數量_temp))
             {
-                if (int.TryParse(textBox_驗收訂單_發票內容_單價.Text, out 單價_temp))
+                if (double.TryParse(textBox_驗收訂單_發票內容_單價.Text, out 單價_temp))
                 {
-                    textBox_驗收訂單_發票內容_總價.Text = (單價_temp * 數量_temp).ToString();
-                    if (int.TryParse(textBox_驗收訂單_發票內容_折讓金額.Text, out 折讓金額_temp))
+                    //textBox_驗收訂單_發票內容_總價.Text = (單價_temp * 數量_temp).ToString();
+                    if (double.TryParse(textBox_驗收訂單_發票內容_折讓金額.Text, out 折讓金額_temp))
                     {
                         折讓後單價_temp = ((單價_temp * 數量_temp) - 折讓金額_temp) / (double)數量_temp;
                         textBox_驗收訂單_發票內容_折讓後單價.Text = 折讓後單價_temp.ToString("0.000");
@@ -1509,16 +1505,16 @@ namespace 高雄榮總屏東分院_訂單管理系統
         }
         private void textBox_驗收訂單_發票內容_單價_TextChanged(object sender, EventArgs e)
         {
-            int 數量_temp = 0;
-            int 單價_temp = 0;
-            int 折讓金額_temp = 0;
+            double 數量_temp = 0;
+            double 單價_temp = 0;
+            double 折讓金額_temp = 0;
             double 折讓後單價_temp = 0;
-            if (int.TryParse(textBox_驗收訂單_發票內容_數量.Text, out 數量_temp))
+            if (double.TryParse(textBox_驗收訂單_發票內容_數量.Text, out 數量_temp))
             {
-                if (int.TryParse(textBox_驗收訂單_發票內容_單價.Text, out 單價_temp))
+                if (double.TryParse(textBox_驗收訂單_發票內容_單價.Text, out 單價_temp))
                 {
-                    textBox_驗收訂單_發票內容_總價.Text = (單價_temp * 數量_temp).ToString();
-                    if (int.TryParse(textBox_驗收訂單_發票內容_折讓金額.Text, out 折讓金額_temp))
+                    //textBox_驗收訂單_發票內容_總價.Text = (單價_temp * 數量_temp).ToString();
+                    if (double.TryParse(textBox_驗收訂單_發票內容_折讓金額.Text, out 折讓金額_temp))
                     {
                         折讓後單價_temp = ((單價_temp * 數量_temp) - 折讓金額_temp) / (double)數量_temp;
                         textBox_驗收訂單_發票內容_折讓後單價.Text = 折讓後單價_temp.ToString("0.000");
@@ -1528,39 +1524,50 @@ namespace 高雄榮總屏東分院_訂單管理系統
         }
         private void textBox_驗收訂單_發票內容_折讓金額_TextChanged(object sender, EventArgs e)
         {
-            int 數量_temp = 0;
-            int 單價_temp = 0;
-            int 折讓金額_temp = 0;
+            double 數量_temp = 0;
+            double 單價_temp = 0;
+            double 折讓金額_temp = 0;
             double 折讓後單價_temp = 0;
-            if (int.TryParse(textBox_驗收訂單_發票內容_數量.Text, out 數量_temp))
+            double 總價_temp = 0;
+            if (double.TryParse(textBox_驗收訂單_發票內容_數量.Text, out 數量_temp))
             {
-                if (int.TryParse(textBox_驗收訂單_發票內容_單價.Text, out 單價_temp))
+                if (double.TryParse(textBox_驗收訂單_發票內容_單價.Text, out 單價_temp))
                 {
-                    textBox_驗收訂單_發票內容_總價.Text = (單價_temp * 數量_temp).ToString();
-                    if (int.TryParse(textBox_驗收訂單_發票內容_折讓金額.Text, out 折讓金額_temp))
+                    if (double.TryParse(textBox_驗收訂單_發票內容_總價.Text, out 總價_temp))
                     {
-                        折讓後單價_temp = ((單價_temp * 數量_temp) - 折讓金額_temp) / (double)數量_temp;
-                        textBox_驗收訂單_發票內容_折讓後單價.Text = 折讓後單價_temp.ToString("0.000");
+                        //textBox_驗收訂單_發票內容_總價.Text = (單價_temp * 數量_temp).ToString();
+                        if (double.TryParse(textBox_驗收訂單_發票內容_折讓金額.Text, out 折讓金額_temp))
+                        {
+                            折讓後單價_temp = ((總價_temp) - 折讓金額_temp) / (double)數量_temp;
+                            textBox_驗收訂單_發票內容_折讓後單價.Text = 折讓後單價_temp.ToString("0.000");
+                        }
                     }
+                }
+            }
+            if (double.TryParse(textBox_驗收訂單_發票內容_總價.Text, out 總價_temp))
+            {
+                if (double.TryParse(textBox_驗收訂單_發票內容_折讓金額.Text, out 折讓金額_temp))
+                {
+                    this.textBox_驗收訂單_發票內容_折讓後總價.Text = (總價_temp - 折讓金額_temp).ToString("0.000");
                 }
             }
         }
         private void textBox_驗收訂單_發票內容_總價_Leave(object sender, EventArgs e)
         {
-            int 總價 = this.textBox_驗收訂單_發票內容_總價.Text.StringToInt32();
-            int 數量 = this.textBox_驗收訂單_發票內容_數量.Text.StringToInt32();
-            if (數量 == -1 || 總價 == -1) return;
-            textBox_驗收訂單_發票內容_單價.Text = ((int)(總價 / 數量)).ToString();
+            //double 總價 = this.textBox_驗收訂單_發票內容_總價.Text.StringToDouble();
+            //int 數量 = this.textBox_驗收訂單_發票內容_數量.Text.StringToInt32();
+            //if (數量 == -1 || 總價 == -1) return;
+            //textBox_驗收訂單_發票內容_單價.Text = ((double)(總價 / 數量)).ToString("0.000");
         }
         private void textBox_驗收訂單_發票內容_總價_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                int 總價 = this.textBox_驗收訂單_發票內容_總價.Text.StringToInt32();
-                int 數量 = this.textBox_驗收訂單_發票內容_數量.Text.StringToInt32();
-                if (數量 == -1 || 總價 == -1) return;
-                textBox_驗收訂單_發票內容_單價.Text = ((int)(總價 / 數量)).ToString(); 
-            }
+            //if (e.KeyChar == (char)Keys.Enter)
+            //{
+            //    double 總價 = this.textBox_驗收訂單_發票內容_總價.Text.StringToDouble();
+            //    int 數量 = this.textBox_驗收訂單_發票內容_數量.Text.StringToInt32();
+            //    if (數量 == -1 || 總價 == -1) return;
+            //    textBox_驗收訂單_發票內容_單價.Text = ((double)(總價 / 數量)).ToString("0.000"); 
+            //}
         }
 
         private void plC_Button_驗收訂單_發票內容_增加品項_btnClick(object sender, EventArgs e)

@@ -189,6 +189,10 @@
             this.CheckBox_驗收訂單_發票內容_已結清 = new System.Windows.Forms.CheckBox();
             this.button_驗收訂單_自動生成發票號碼 = new System.Windows.Forms.Button();
             this.groupBox20 = new System.Windows.Forms.GroupBox();
+            this.panel30 = new System.Windows.Forms.Panel();
+            this.textBox_驗收訂單_發票內容_折讓後總價 = new System.Windows.Forms.TextBox();
+            this.panel165 = new System.Windows.Forms.Panel();
+            this.label168 = new System.Windows.Forms.Label();
             this.panel163 = new System.Windows.Forms.Panel();
             this.textBox_驗收訂單_發票內容_合約廠商 = new System.Windows.Forms.TextBox();
             this.panel164 = new System.Windows.Forms.Panel();
@@ -630,6 +634,7 @@
             this.plC_NumBox19 = new MyUI.PLC_NumBox();
             this.人員資料 = new System.Windows.Forms.TabPage();
             this.groupBox40 = new System.Windows.Forms.GroupBox();
+            this.plC_Button_系統更新 = new MyUI.PLC_Button();
             this.licenseUI1 = new LicenseLib.Properties.LicenseUI();
             this.groupBox43 = new System.Windows.Forms.GroupBox();
             this.label149 = new System.Windows.Forms.Label();
@@ -869,6 +874,8 @@
             this.panel88 = new System.Windows.Forms.Panel();
             this.plC_Date1 = new MyUI.PLC_Date();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.ftp_DounloadUI1 = new MyFtpUI.Ftp_DounloadUI();
+            this.groupBox53 = new System.Windows.Forms.GroupBox();
             this.plC_ScreenPage1.SuspendLayout();
             this.下訂單.SuspendLayout();
             this.groupBox13.SuspendLayout();
@@ -928,6 +935,8 @@
             this.panel131.SuspendLayout();
             this.groupBox_驗收訂單_發票內容.SuspendLayout();
             this.groupBox20.SuspendLayout();
+            this.panel30.SuspendLayout();
+            this.panel165.SuspendLayout();
             this.panel163.SuspendLayout();
             this.panel164.SuspendLayout();
             this.panel94.SuspendLayout();
@@ -1121,12 +1130,13 @@
             this.groupBox42.SuspendLayout();
             this.panel89.SuspendLayout();
             this.panel141.SuspendLayout();
+            this.groupBox53.SuspendLayout();
             this.SuspendLayout();
             // 
             // timer_Init
             // 
             this.timer_Init.Enabled = true;
-            this.timer_Init.Tick += new System.EventHandler(this.timer_Init_Tick);
+            this.timer_Init.Tick += new System.EventHandler(this.Timer_Init_Tick);
             // 
             // openFileDialog_LoadExcel
             // 
@@ -1136,7 +1146,7 @@
             // saveFileDialog_SaveExcel
             // 
             this.saveFileDialog_SaveExcel.DefaultExt = "xlsx";
-            this.saveFileDialog_SaveExcel.Filter = "Excel File (*.xlsx)|*.xlsx|Excel File (*.xls)|*.xls;";
+            this.saveFileDialog_SaveExcel.Filter = "Excel File (*.xls)|*.xls;";
             // 
             // plC_ScreenPage1
             // 
@@ -3623,6 +3633,7 @@
             // 
             // groupBox20
             // 
+            this.groupBox20.Controls.Add(this.panel30);
             this.groupBox20.Controls.Add(this.panel163);
             this.groupBox20.Controls.Add(this.panel94);
             this.groupBox20.Controls.Add(this.panel92);
@@ -3645,14 +3656,56 @@
             this.groupBox20.TabStop = false;
             this.groupBox20.Text = "單筆內容";
             // 
+            // panel30
+            // 
+            this.panel30.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel30.Controls.Add(this.textBox_驗收訂單_發票內容_折讓後總價);
+            this.panel30.Controls.Add(this.panel165);
+            this.panel30.Location = new System.Drawing.Point(8, 187);
+            this.panel30.Name = "panel30";
+            this.panel30.Size = new System.Drawing.Size(448, 26);
+            this.panel30.TabIndex = 35;
+            // 
+            // textBox_驗收訂單_發票內容_折讓後總價
+            // 
+            this.textBox_驗收訂單_發票內容_折讓後總價.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_驗收訂單_發票內容_折讓後總價.Location = new System.Drawing.Point(123, 0);
+            this.textBox_驗收訂單_發票內容_折讓後總價.Margin = new System.Windows.Forms.Padding(5);
+            this.textBox_驗收訂單_發票內容_折讓後總價.Name = "textBox_驗收訂單_發票內容_折讓後總價";
+            this.textBox_驗收訂單_發票內容_折讓後總價.ReadOnly = true;
+            this.textBox_驗收訂單_發票內容_折讓後總價.Size = new System.Drawing.Size(321, 22);
+            this.textBox_驗收訂單_發票內容_折讓後總價.TabIndex = 1;
+            this.textBox_驗收訂單_發票內容_折讓後總價.TabStop = false;
+            // 
+            // panel165
+            // 
+            this.panel165.Controls.Add(this.label168);
+            this.panel165.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel165.Location = new System.Drawing.Point(0, 0);
+            this.panel165.Name = "panel165";
+            this.panel165.Size = new System.Drawing.Size(123, 22);
+            this.panel165.TabIndex = 1;
+            // 
+            // label168
+            // 
+            this.label168.BackColor = System.Drawing.Color.LemonChiffon;
+            this.label168.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label168.Font = new System.Drawing.Font("新細明體", 12F);
+            this.label168.Location = new System.Drawing.Point(0, 0);
+            this.label168.Name = "label168";
+            this.label168.Size = new System.Drawing.Size(123, 22);
+            this.label168.TabIndex = 0;
+            this.label168.Text = "折讓後總價";
+            this.label168.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // panel163
             // 
             this.panel163.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel163.Controls.Add(this.textBox_驗收訂單_發票內容_合約廠商);
             this.panel163.Controls.Add(this.panel164);
-            this.panel163.Location = new System.Drawing.Point(9, 269);
+            this.panel163.Location = new System.Drawing.Point(8, 265);
             this.panel163.Name = "panel163";
-            this.panel163.Size = new System.Drawing.Size(449, 26);
+            this.panel163.Size = new System.Drawing.Size(447, 26);
             this.panel163.TabIndex = 34;
             // 
             // textBox_驗收訂單_發票內容_合約廠商
@@ -3662,7 +3715,7 @@
             this.textBox_驗收訂單_發票內容_合約廠商.Margin = new System.Windows.Forms.Padding(5);
             this.textBox_驗收訂單_發票內容_合約廠商.Name = "textBox_驗收訂單_發票內容_合約廠商";
             this.textBox_驗收訂單_發票內容_合約廠商.ReadOnly = true;
-            this.textBox_驗收訂單_發票內容_合約廠商.Size = new System.Drawing.Size(322, 22);
+            this.textBox_驗收訂單_發票內容_合約廠商.Size = new System.Drawing.Size(320, 22);
             this.textBox_驗收訂單_發票內容_合約廠商.TabIndex = 4;
             this.textBox_驗收訂單_發票內容_合約廠商.TabStop = false;
             // 
@@ -3880,9 +3933,9 @@
             this.panel136.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel136.Controls.Add(this.textBox_驗收訂單_發票內容_批號);
             this.panel136.Controls.Add(this.panel137);
-            this.panel136.Location = new System.Drawing.Point(9, 242);
+            this.panel136.Location = new System.Drawing.Point(230, 239);
             this.panel136.Name = "panel136";
-            this.panel136.Size = new System.Drawing.Size(449, 26);
+            this.panel136.Size = new System.Drawing.Size(225, 26);
             this.panel136.TabIndex = 15;
             // 
             // textBox_驗收訂單_發票內容_批號
@@ -3891,7 +3944,7 @@
             this.textBox_驗收訂單_發票內容_批號.Location = new System.Drawing.Point(123, 0);
             this.textBox_驗收訂單_發票內容_批號.Margin = new System.Windows.Forms.Padding(5);
             this.textBox_驗收訂單_發票內容_批號.Name = "textBox_驗收訂單_發票內容_批號";
-            this.textBox_驗收訂單_發票內容_批號.Size = new System.Drawing.Size(322, 22);
+            this.textBox_驗收訂單_發票內容_批號.Size = new System.Drawing.Size(98, 22);
             this.textBox_驗收訂單_發票內容_批號.TabIndex = 9;
             // 
             // panel137
@@ -3920,9 +3973,9 @@
             this.panel114.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel114.Controls.Add(this.textBox_驗收訂單_發票內容_效期);
             this.panel114.Controls.Add(this.panel133);
-            this.panel114.Location = new System.Drawing.Point(9, 215);
+            this.panel114.Location = new System.Drawing.Point(8, 239);
             this.panel114.Name = "panel114";
-            this.panel114.Size = new System.Drawing.Size(449, 26);
+            this.panel114.Size = new System.Drawing.Size(224, 26);
             this.panel114.TabIndex = 13;
             // 
             // textBox_驗收訂單_發票內容_效期
@@ -3931,7 +3984,7 @@
             this.textBox_驗收訂單_發票內容_效期.Location = new System.Drawing.Point(123, 0);
             this.textBox_驗收訂單_發票內容_效期.Margin = new System.Windows.Forms.Padding(5);
             this.textBox_驗收訂單_發票內容_效期.Name = "textBox_驗收訂單_發票內容_效期";
-            this.textBox_驗收訂單_發票內容_效期.Size = new System.Drawing.Size(322, 22);
+            this.textBox_驗收訂單_發票內容_效期.Size = new System.Drawing.Size(97, 22);
             this.textBox_驗收訂單_發票內容_效期.TabIndex = 8;
             // 
             // panel133
@@ -3960,9 +4013,9 @@
             this.panel125.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel125.Controls.Add(this.textBox_驗收訂單_發票內容_訂單編號);
             this.panel125.Controls.Add(this.panel126);
-            this.panel125.Location = new System.Drawing.Point(9, 188);
+            this.panel125.Location = new System.Drawing.Point(8, 214);
             this.panel125.Name = "panel125";
-            this.panel125.Size = new System.Drawing.Size(449, 26);
+            this.panel125.Size = new System.Drawing.Size(447, 26);
             this.panel125.TabIndex = 13;
             // 
             // textBox_驗收訂單_發票內容_訂單編號
@@ -3972,7 +4025,7 @@
             this.textBox_驗收訂單_發票內容_訂單編號.Margin = new System.Windows.Forms.Padding(5);
             this.textBox_驗收訂單_發票內容_訂單編號.Name = "textBox_驗收訂單_發票內容_訂單編號";
             this.textBox_驗收訂單_發票內容_訂單編號.ReadOnly = true;
-            this.textBox_驗收訂單_發票內容_訂單編號.Size = new System.Drawing.Size(322, 22);
+            this.textBox_驗收訂單_發票內容_訂單編號.Size = new System.Drawing.Size(320, 22);
             this.textBox_驗收訂單_發票內容_訂單編號.TabIndex = 1;
             this.textBox_驗收訂單_發票內容_訂單編號.TabStop = false;
             // 
@@ -4086,7 +4139,7 @@
             this.panel119.Controls.Add(this.panel120);
             this.panel119.Location = new System.Drawing.Point(9, 107);
             this.panel119.Name = "panel119";
-            this.panel119.Size = new System.Drawing.Size(449, 26);
+            this.panel119.Size = new System.Drawing.Size(447, 26);
             this.panel119.TabIndex = 10;
             // 
             // textBox_驗收訂單_發票內容_數量
@@ -4095,7 +4148,7 @@
             this.textBox_驗收訂單_發票內容_數量.Location = new System.Drawing.Point(123, 0);
             this.textBox_驗收訂單_發票內容_數量.Margin = new System.Windows.Forms.Padding(5);
             this.textBox_驗收訂單_發票內容_數量.Name = "textBox_驗收訂單_發票內容_數量";
-            this.textBox_驗收訂單_發票內容_數量.Size = new System.Drawing.Size(322, 22);
+            this.textBox_驗收訂單_發票內容_數量.Size = new System.Drawing.Size(320, 22);
             this.textBox_驗收訂單_發票內容_數量.TabIndex = 5;
             this.textBox_驗收訂單_發票內容_數量.TabStop = false;
             this.textBox_驗收訂單_發票內容_數量.TextChanged += new System.EventHandler(this.textBox_驗收訂單_發票內容_數量_TextChanged);
@@ -4128,7 +4181,7 @@
             this.panel117.Controls.Add(this.panel118);
             this.panel117.Location = new System.Drawing.Point(9, 80);
             this.panel117.Name = "panel117";
-            this.panel117.Size = new System.Drawing.Size(449, 26);
+            this.panel117.Size = new System.Drawing.Size(447, 26);
             this.panel117.TabIndex = 9;
             // 
             // textBox_驗收訂單_發票內容_藥品名稱
@@ -4138,7 +4191,7 @@
             this.textBox_驗收訂單_發票內容_藥品名稱.Margin = new System.Windows.Forms.Padding(5);
             this.textBox_驗收訂單_發票內容_藥品名稱.Name = "textBox_驗收訂單_發票內容_藥品名稱";
             this.textBox_驗收訂單_發票內容_藥品名稱.ReadOnly = true;
-            this.textBox_驗收訂單_發票內容_藥品名稱.Size = new System.Drawing.Size(322, 22);
+            this.textBox_驗收訂單_發票內容_藥品名稱.Size = new System.Drawing.Size(320, 22);
             this.textBox_驗收訂單_發票內容_藥品名稱.TabIndex = 1;
             this.textBox_驗收訂單_發票內容_藥品名稱.TabStop = false;
             // 
@@ -4170,7 +4223,7 @@
             this.panel115.Controls.Add(this.panel116);
             this.panel115.Location = new System.Drawing.Point(9, 53);
             this.panel115.Name = "panel115";
-            this.panel115.Size = new System.Drawing.Size(449, 26);
+            this.panel115.Size = new System.Drawing.Size(447, 26);
             this.panel115.TabIndex = 8;
             // 
             // textBox_驗收訂單_發票內容_藥品碼
@@ -4180,7 +4233,7 @@
             this.textBox_驗收訂單_發票內容_藥品碼.Margin = new System.Windows.Forms.Padding(5);
             this.textBox_驗收訂單_發票內容_藥品碼.Name = "textBox_驗收訂單_發票內容_藥品碼";
             this.textBox_驗收訂單_發票內容_藥品碼.ReadOnly = true;
-            this.textBox_驗收訂單_發票內容_藥品碼.Size = new System.Drawing.Size(322, 22);
+            this.textBox_驗收訂單_發票內容_藥品碼.Size = new System.Drawing.Size(320, 22);
             this.textBox_驗收訂單_發票內容_藥品碼.TabIndex = 1;
             this.textBox_驗收訂單_發票內容_藥品碼.TabStop = false;
             // 
@@ -10762,6 +10815,7 @@
             // 
             // groupBox40
             // 
+            this.groupBox40.Controls.Add(this.groupBox53);
             this.groupBox40.Controls.Add(this.licenseUI1);
             this.groupBox40.Controls.Add(this.groupBox43);
             this.groupBox40.Controls.Add(this.groupBox27);
@@ -10774,6 +10828,35 @@
             this.groupBox40.TabIndex = 19;
             this.groupBox40.TabStop = false;
             this.groupBox40.Text = "資料內容";
+            // 
+            // plC_Button_系統更新
+            // 
+            this.plC_Button_系統更新.Bool = false;
+            this.plC_Button_系統更新.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.plC_Button_系統更新.Icon = System.Windows.Forms.MessageBoxIcon.Warning;
+            this.plC_Button_系統更新.Location = new System.Drawing.Point(584, 95);
+            this.plC_Button_系統更新.Name = "plC_Button_系統更新";
+            this.plC_Button_系統更新.OFF_文字字體 = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.plC_Button_系統更新.OFF_文字顏色 = System.Drawing.Color.Black;
+            this.plC_Button_系統更新.OFF_背景顏色 = System.Drawing.SystemColors.Control;
+            this.plC_Button_系統更新.ON_文字字體 = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.plC_Button_系統更新.ON_文字顏色 = System.Drawing.Color.White;
+            this.plC_Button_系統更新.ON_背景顏色 = System.Drawing.Color.Yellow;
+            this.plC_Button_系統更新.Size = new System.Drawing.Size(51, 47);
+            this.plC_Button_系統更新.Style = MyUI.PLC_Button.StyleEnum.自定義;
+            this.plC_Button_系統更新.TabIndex = 13;
+            this.plC_Button_系統更新.字型鎖住 = false;
+            this.plC_Button_系統更新.按鈕型態 = MyUI.PLC_Button.StatusEnum.保持型;
+            this.plC_Button_系統更新.按鍵方式 = MyUI.PLC_Button.PressEnum.Mouse_左鍵;
+            this.plC_Button_系統更新.提示文字 = "系統更新";
+            this.plC_Button_系統更新.文字鎖住 = false;
+            this.plC_Button_系統更新.狀態OFF圖片 = global::高雄榮總屏東分院_藥品補給系統.Properties.Resources.Update;
+            this.plC_Button_系統更新.狀態ON圖片 = global::高雄榮總屏東分院_藥品補給系統.Properties.Resources.Update;
+            this.plC_Button_系統更新.讀寫鎖住 = false;
+            this.plC_Button_系統更新.音效 = true;
+            this.plC_Button_系統更新.顯示 = false;
+            this.plC_Button_系統更新.顯示狀態 = false;
+            this.plC_Button_系統更新.btnClick += new System.EventHandler(this.plC_Button_系統更新_btnClick);
             // 
             // licenseUI1
             // 
@@ -12276,7 +12359,7 @@
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 438F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 451F));
             this.tableLayoutPanel3.Controls.Add(this.label86, 0, 15);
             this.tableLayoutPanel3.Controls.Add(this.textBox_信箱設定_聯絡人, 2, 14);
             this.tableLayoutPanel3.Controls.Add(this.textBox_信箱設定_Email, 2, 13);
@@ -12469,7 +12552,7 @@
             this.label36.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label36.Location = new System.Drawing.Point(159, 1);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(432, 25);
+            this.label36.Size = new System.Drawing.Size(445, 25);
             this.label36.TabIndex = 2;
             this.label36.Text = "內容";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -15305,7 +15388,34 @@
             // timer1
             // 
             this.timer1.Enabled = true;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
+            // ftp_DounloadUI1
+            // 
+            this.ftp_DounloadUI1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ftp_DounloadUI1.FileName = "Setup.msi";
+            this.ftp_DounloadUI1.FTP_Groupbox_要顯示 = false;
+            this.ftp_DounloadUI1.FTP_Server = "ftp://kutech.myds.me/FTP/高雄榮總(屏東分院)/藥品補給系統";
+            this.ftp_DounloadUI1.FTP_Server_要顯示 = false;
+            this.ftp_DounloadUI1.Location = new System.Drawing.Point(6, 26);
+            this.ftp_DounloadUI1.Name = "ftp_DounloadUI1";
+            this.ftp_DounloadUI1.Password = "test";
+            this.ftp_DounloadUI1.Password_要顯示 = false;
+            this.ftp_DounloadUI1.Size = new System.Drawing.Size(431, 111);
+            this.ftp_DounloadUI1.TabIndex = 12;
+            this.ftp_DounloadUI1.Username = "test";
+            this.ftp_DounloadUI1.Username_要顯示 = false;
+            // 
+            // groupBox53
+            // 
+            this.groupBox53.Controls.Add(this.ftp_DounloadUI1);
+            this.groupBox53.Controls.Add(this.plC_Button_系統更新);
+            this.groupBox53.Location = new System.Drawing.Point(1247, 159);
+            this.groupBox53.Name = "groupBox53";
+            this.groupBox53.Size = new System.Drawing.Size(641, 148);
+            this.groupBox53.TabIndex = 14;
+            this.groupBox53.TabStop = false;
+            this.groupBox53.Text = "系統更新";
             // 
             // Form1
             // 
@@ -15316,7 +15426,7 @@
             this.Controls.Add(this.plC_ScreenPage1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "藥品補給系統(鴻森整合機電有限公司)";
+            this.Text = "藥品補給系統(鴻森整合機電有限公司) ";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             this.plC_ScreenPage1.ResumeLayout(false);
@@ -15408,6 +15518,9 @@
             this.groupBox_驗收訂單_發票內容.ResumeLayout(false);
             this.groupBox_驗收訂單_發票內容.PerformLayout();
             this.groupBox20.ResumeLayout(false);
+            this.panel30.ResumeLayout(false);
+            this.panel30.PerformLayout();
+            this.panel165.ResumeLayout(false);
             this.panel163.ResumeLayout(false);
             this.panel163.PerformLayout();
             this.panel164.ResumeLayout(false);
@@ -15695,6 +15808,7 @@
             this.panel89.PerformLayout();
             this.panel141.ResumeLayout(false);
             this.panel141.PerformLayout();
+            this.groupBox53.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -16540,6 +16654,13 @@
         private MyUI.PLC_NumBox plC_NumBox23;
         private System.Windows.Forms.Timer timer1;
         private LicenseLib.Properties.LicenseUI licenseUI1;
+        private MyFtpUI.Ftp_DounloadUI ftp_DounloadUI1;
+        private System.Windows.Forms.Panel panel30;
+        private System.Windows.Forms.TextBox textBox_驗收訂單_發票內容_折讓後總價;
+        private System.Windows.Forms.Panel panel165;
+        private System.Windows.Forms.Label label168;
+        private MyUI.PLC_Button plC_Button_系統更新;
+        private System.Windows.Forms.GroupBox groupBox53;
     }
 }
 

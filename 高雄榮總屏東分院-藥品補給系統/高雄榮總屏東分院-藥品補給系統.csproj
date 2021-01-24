@@ -24,8 +24,8 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>55</ApplicationRevision>
+    <ApplicationVersion>1.0.0.55</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -55,7 +55,7 @@
     <StartupObject />
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>check_512_EKT_icon.ico</ApplicationIcon>
+    <ApplicationIcon>check_512_sWy_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>A9E51CBA2702E38CCDFF40B07DEBC6735E6D7F87</ManifestCertificateThumbprint>
@@ -68,6 +68,13 @@
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <TargetZone>Internet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Basic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -91,6 +98,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\MyEmail20210118\MyEmail\bin\Release\MyEmail.dll</HintPath>
     </Reference>
+    <Reference Include="MyFtpUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Release\MyFtpUI.dll</HintPath>
+    </Reference>
     <Reference Include="MyInvoiceUI">
       <HintPath>..\0.DLL\MyInvoiceUI.dll</HintPath>
     </Reference>
@@ -110,7 +121,7 @@
     </Reference>
     <Reference Include="SQLUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Release\SQLUI.dll</HintPath>
+      <HintPath>..\..\MyUI20210122\SQLUI\bin\Release\SQLUI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -209,6 +220,7 @@
     <EmbeddedResource Include="sub_Form_修改密碼.resx">
       <DependentUpon>sub_Form_修改密碼.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -283,7 +295,8 @@
     <None Include="Resources\logout.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="check_512_EKT_icon.ico" />
+    <Content Include="check_512_sWy_icon.ico" />
+    <None Include="Resources\Update.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">

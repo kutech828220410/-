@@ -49,11 +49,11 @@ namespace 高雄榮總屏東分院_訂單管理系統
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            this.Text += "Ver"+this.ProductVersion;
             SQLUI.SQL_DataGridView.SQL_Set_Properties(UserName, Password, IP, Port, this.FindForm());
 
             //this.TopMost = true;
-            this.licenseUI1.Init();
+
 
             string ProcessName = "WINWORD";//換成想要結束的進程名字
             System.Diagnostics.Process[] MyProcess = System.Diagnostics.Process.GetProcessesByName(ProcessName);
@@ -75,7 +75,7 @@ namespace 高雄榮總屏東分院_訂單管理系統
             }
         }
 
-        private void timer_Init_Tick(object sender, EventArgs e)
+        private void Timer_Init_Tick(object sender, EventArgs e)
         {
             if(this.plC_UI_Init.Init_Finish)
             {
@@ -105,7 +105,9 @@ namespace 高雄榮總屏東分院_訂單管理系統
                 this.plC_UI_Init.Add_Method(this.sub_Program_訂單管理);
                 this.plC_UI_Init.Add_Method(this.sub_Program_人員資料);
                 this.plC_UI_Init.Add_Method(this.sub_Program_登入畫面);
-                
+
+                this.licenseUI1.Init();
+
                 this.timer_Init.Enabled = false;
             }
         }
@@ -115,11 +117,33 @@ namespace 高雄榮總屏東分院_訂單管理系統
 
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             if(keyboard.MouseDown)
             {
                 keyboard.MouseDown = false;
+            }
+        }
+
+        private void plC_Button_系統更新_btnClick(object sender, EventArgs e)
+        {
+            if(Basic.MyMessageBox.ShowDialog("是否執行系統更新?下載完成,系統將會關閉!","Update",  Basic.MyMessageBox.enum_BoxType.Asterisk, Basic.MyMessageBox.enum_Button.Confirm_Cancel) == DialogResult.Yes)
+            {
+                if(this.ftp_DounloadUI1.DownloadFile())
+                {
+                    if(this.ftp_DounloadUI1.SaveFile())
+                    {
+                        this.ftp_DounloadUI1.RunFile();
+                    }
+                    else
+                    {
+                        Basic.MyMessageBox.ShowDialog("安裝檔存檔失敗!");
+                    }
+                }
+                else
+                {
+                    Basic.MyMessageBox.ShowDialog("下載失敗!");
+                }
             }
         }
     }
