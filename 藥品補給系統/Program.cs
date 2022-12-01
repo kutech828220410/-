@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Diagnostics;
 namespace 藥品補給系統
 {
     static class Program
@@ -16,9 +16,14 @@ namespace 藥品補給系統
         [STAThread]
         static void Main()
         {
-
-            mutex = new System.Threading.Mutex(true, "OnlyRun");
-            if (mutex.WaitOne(0, false))
+            string ProcessName = Process.GetCurrentProcess().ProcessName;
+            Process[] process = Process.GetProcesses();
+            int num = 0;
+            for (int i = 0; i < process.Length; i++)
+            {
+                if (process[i].ProcessName == ProcessName) num++;
+            }
+            if(num <= 1)
             {
                 Application.Run(new Form1());
             }
@@ -27,6 +32,7 @@ namespace 藥品補給系統
                 MessageBox.Show("程式已經在執行！", "提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Application.Exit();
             }
+
         }
     }
 }
