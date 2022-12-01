@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32929.386
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Update", "Update\Update.csproj", "{54011AED-24D1-4F55-B8E1-B04D6C62761B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "藥品補給系統", "藥品補給系統\藥品補給系統.csproj", "{3B1E6BFD-344C-4143-BB55-50A4D62EAD50}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{54011AED-24D1-4F55-B8E1-B04D6C62761B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54011AED-24D1-4F55-B8E1-B04D6C62761B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54011AED-24D1-4F55-B8E1-B04D6C62761B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54011AED-24D1-4F55-B8E1-B04D6C62761B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B1E6BFD-344C-4143-BB55-50A4D62EAD50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B1E6BFD-344C-4143-BB55-50A4D62EAD50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B1E6BFD-344C-4143-BB55-50A4D62EAD50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B1E6BFD-344C-4143-BB55-50A4D62EAD50}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9A1D4D59-851F-4B0B-824D-5898AC981315}
+	EndGlobalSection
+EndGlobal
