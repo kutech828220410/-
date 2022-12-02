@@ -1084,6 +1084,11 @@ namespace 藥品補給系統
         }
         private void button_下訂單_訂單編號_自動生成_Click(object sender, EventArgs e)
         {
+            string Title = "OD";
+            if(checkBox_下訂單_訂單編號_緊急.Checked)
+            {
+                Title = "EM";
+            }
             this.textBox_下訂單_訂單內容_訂單編號.Text = "OD" + DateTime.Now.Year + DateTime.Now.Month.ToString("00") + DateTime.Now.Day.ToString("00") + DateTime.Now.Hour.ToString("00") + DateTime.Now.Minute.ToString("00") + DateTime.Now.Second.ToString("00");
         }
         #endregion
