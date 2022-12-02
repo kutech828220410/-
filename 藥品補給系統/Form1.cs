@@ -204,7 +204,7 @@ namespace 藥品補給系統
         {
             //LoadDBConfig();
             //LoadMyConfig();
-
+            MyMessageBox.form = this.FindForm();
             LoadFtpConfig();
 
 
