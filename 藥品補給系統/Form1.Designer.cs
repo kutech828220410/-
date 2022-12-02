@@ -43,6 +43,7 @@
             this.plC_Button2 = new MyUI.PLC_Button();
             this.plC_Button1 = new MyUI.PLC_Button();
             this.groupBox_下訂單_訂單內容 = new System.Windows.Forms.GroupBox();
+            this.checkBox_下訂單_訂單編號_緊急 = new System.Windows.Forms.CheckBox();
             this.sqL_DataGridView_下訂單_訂單單筆品項 = new SQLUI.SQL_DataGridView();
             this.panel175 = new System.Windows.Forms.Panel();
             this.textBox_下訂單_訂單內容_已採購總量 = new System.Windows.Forms.TextBox();
@@ -989,7 +990,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialog_SaveExcel = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog_LoadExcel = new System.Windows.Forms.OpenFileDialog();
-            this.checkBox_下訂單_訂單編號_緊急 = new System.Windows.Forms.CheckBox();
             this.plC_ScreenPage1.SuspendLayout();
             this.下訂單.SuspendLayout();
             this.groupBox13.SuspendLayout();
@@ -1534,6 +1534,16 @@
             this.groupBox_下訂單_訂單內容.TabIndex = 1;
             this.groupBox_下訂單_訂單內容.TabStop = false;
             this.groupBox_下訂單_訂單內容.Text = "訂單內容";
+            // 
+            // checkBox_下訂單_訂單編號_緊急
+            // 
+            this.checkBox_下訂單_訂單編號_緊急.AutoSize = true;
+            this.checkBox_下訂單_訂單編號_緊急.Location = new System.Drawing.Point(341, 145);
+            this.checkBox_下訂單_訂單編號_緊急.Name = "checkBox_下訂單_訂單編號_緊急";
+            this.checkBox_下訂單_訂單編號_緊急.Size = new System.Drawing.Size(48, 16);
+            this.checkBox_下訂單_訂單編號_緊急.TabIndex = 31;
+            this.checkBox_下訂單_訂單編號_緊急.Text = "緊急";
+            this.checkBox_下訂單_訂單編號_緊急.UseVisualStyleBackColor = true;
             // 
             // sqL_DataGridView_下訂單_訂單單筆品項
             // 
@@ -14876,7 +14886,7 @@
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 673F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 674F));
             this.tableLayoutPanel3.Controls.Add(this.label86, 0, 15);
             this.tableLayoutPanel3.Controls.Add(this.textBox_信箱設定_聯絡人, 2, 14);
             this.tableLayoutPanel3.Controls.Add(this.textBox_信箱設定_Email, 2, 13);
@@ -15069,7 +15079,7 @@
             this.label36.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label36.Location = new System.Drawing.Point(159, 1);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(667, 25);
+            this.label36.Size = new System.Drawing.Size(668, 25);
             this.label36.TabIndex = 2;
             this.label36.Text = "內容";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -18379,16 +18389,6 @@
             // 
             this.openFileDialog_LoadExcel.DefaultExt = "txt";
             this.openFileDialog_LoadExcel.Filter = "txt File (*.txt)|*.txt;";
-            // 
-            // checkBox_下訂單_訂單編號_緊急
-            // 
-            this.checkBox_下訂單_訂單編號_緊急.AutoSize = true;
-            this.checkBox_下訂單_訂單編號_緊急.Location = new System.Drawing.Point(341, 145);
-            this.checkBox_下訂單_訂單編號_緊急.Name = "checkBox_下訂單_訂單編號_緊急";
-            this.checkBox_下訂單_訂單編號_緊急.Size = new System.Drawing.Size(48, 16);
-            this.checkBox_下訂單_訂單編號_緊急.TabIndex = 31;
-            this.checkBox_下訂單_訂單編號_緊急.Text = "緊急";
-            this.checkBox_下訂單_訂單編號_緊急.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
