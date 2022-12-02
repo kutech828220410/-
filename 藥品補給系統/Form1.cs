@@ -16,8 +16,8 @@ using SQLUI;
 using System.Diagnostics;//記得取用 FileVersionInfo繼承
 using System.Reflection;//記得取用 Assembly繼承
 
-[assembly: AssemblyVersion("1.0.158")]
-[assembly: AssemblyFileVersion("1.0.158")]
+[assembly: AssemblyVersion("1.0.157")]
+[assembly: AssemblyFileVersion("1.0.157")]
 namespace 藥品補給系統
 {
     public partial class Form1 : Form
@@ -204,7 +204,7 @@ namespace 藥品補給系統
         {
             //LoadDBConfig();
             //LoadMyConfig();
-            MyMessageBox.form = this.FindForm();
+
             LoadFtpConfig();
 
 
