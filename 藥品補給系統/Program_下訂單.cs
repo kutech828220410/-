@@ -1089,7 +1089,7 @@ namespace 藥品補給系統
             {
                 Title = "EM";
             }
-            this.textBox_下訂單_訂單內容_訂單編號.Text = "OD" + DateTime.Now.Year + DateTime.Now.Month.ToString("00") + DateTime.Now.Day.ToString("00") + DateTime.Now.Hour.ToString("00") + DateTime.Now.Minute.ToString("00") + DateTime.Now.Second.ToString("00");
+            this.textBox_下訂單_訂單內容_訂單編號.Text = Title + DateTime.Now.Year + DateTime.Now.Month.ToString("00") + DateTime.Now.Day.ToString("00") + DateTime.Now.Hour.ToString("00") + DateTime.Now.Minute.ToString("00") + DateTime.Now.Second.ToString("00");
         }
         #endregion
     }
