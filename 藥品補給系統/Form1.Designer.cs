@@ -14929,7 +14929,7 @@
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 676F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 677F));
             this.tableLayoutPanel3.Controls.Add(this.label86, 0, 15);
             this.tableLayoutPanel3.Controls.Add(this.textBox_信箱設定_聯絡人, 2, 14);
             this.tableLayoutPanel3.Controls.Add(this.textBox_信箱設定_Email, 2, 13);
@@ -15122,7 +15122,7 @@
             this.label36.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label36.Location = new System.Drawing.Point(159, 1);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(670, 25);
+            this.label36.Size = new System.Drawing.Size(671, 25);
             this.label36.TabIndex = 2;
             this.label36.Text = "內容";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

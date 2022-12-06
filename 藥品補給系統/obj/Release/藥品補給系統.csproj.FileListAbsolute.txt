@@ -110,3 +110,11 @@ C:\Users\User\Desktop\藥品補給系統\藥品補給系統\obj\Release\藥品�
 C:\Users\User\Desktop\藥品補給系統\藥品補給系統\obj\Release\藥品補給系統.csproj.CopyComplete
 C:\Users\User\Desktop\藥品補給系統\藥品補給系統\obj\Release\藥品補給系統.exe
 C:\Users\User\Desktop\藥品補給系統\藥品補給系統\obj\Release\藥品補給系統.pdb
+C:\Users\User\Desktop\藥品補給系統\藥品補給系統\bin\Release\LicenseLib.dll
+C:\Users\User\Desktop\藥品補給系統\藥品補給系統\bin\Release\MySql.Data.dll
+C:\Users\User\Desktop\藥品補給系統\藥品補給系統\bin\Release\MeasureSystemUI.dll
+C:\Users\User\Desktop\藥品補給系統\藥品補給系統\bin\Release\AxOvkBase.dll
+C:\Users\User\Desktop\藥品補給系統\藥品補給系統\bin\Release\AxAltairUDrvAsm4.5.dll
+C:\Users\User\Desktop\藥品補給系統\藥品補給系統\bin\Release\AxOvkBaseAsm4.5.dll
+C:\Users\User\Desktop\藥品補給系統\藥品補給系統\bin\Release\AxOvkMsr.dll
+C:\Users\User\Desktop\藥品補給系統\藥品補給系統\bin\Release\AxAltairUDrv.dll
