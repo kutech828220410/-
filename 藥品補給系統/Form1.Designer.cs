@@ -990,6 +990,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialog_SaveExcel = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog_LoadExcel = new System.Windows.Forms.OpenFileDialog();
+            this.plC_Button_訂單管理_顯示異常訂購量 = new MyUI.PLC_RJ_Button();
             this.plC_ScreenPage1.SuspendLayout();
             this.下訂單.SuspendLayout();
             this.groupBox13.SuspendLayout();
@@ -8964,6 +8965,7 @@
             // 
             // groupBox29
             // 
+            this.groupBox29.Controls.Add(this.plC_Button_訂單管理_顯示異常訂購量);
             this.groupBox29.Controls.Add(this.plC_Button_訂單管理_匯出全部發票資料);
             this.groupBox29.Controls.Add(this.plC_Button_訂單管理_匯出全部訂單資料);
             this.groupBox29.Controls.Add(this.plC_Button_訂單管理_刪除選取訂單內單品項資料);
@@ -9852,8 +9854,8 @@
             // 
             this.供應商資料.Controls.Add(this.groupBox1);
             this.供應商資料.Controls.Add(this.flowLayoutPanel4);
-            this.供應商資料.Controls.Add(this.flowLayoutPanel3);
             this.供應商資料.Controls.Add(this.sqL_DataGridView_供應商資料);
+            this.供應商資料.Controls.Add(this.flowLayoutPanel3);
             this.供應商資料.Location = new System.Drawing.Point(4, 25);
             this.供應商資料.Name = "供應商資料";
             this.供應商資料.Size = new System.Drawing.Size(1896, 1013);
@@ -10641,7 +10643,7 @@
             this.flowLayoutPanel3.Controls.Add(this.panel157);
             this.flowLayoutPanel3.Controls.Add(this.groupBox49);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 546);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(1896, 57);
             this.flowLayoutPanel3.TabIndex = 1;
@@ -11196,7 +11198,7 @@
             this.sqL_DataGridView_供應商資料.Dock = System.Windows.Forms.DockStyle.Top;
             this.sqL_DataGridView_供應商資料.Font = new System.Drawing.Font("新細明體", 9F);
             this.sqL_DataGridView_供應商資料.ImageBox = false;
-            this.sqL_DataGridView_供應商資料.Location = new System.Drawing.Point(0, 0);
+            this.sqL_DataGridView_供應商資料.Location = new System.Drawing.Point(0, 57);
             this.sqL_DataGridView_供應商資料.Name = "sqL_DataGridView_供應商資料";
             this.sqL_DataGridView_供應商資料.OnlineState = SQLUI.SQL_DataGridView.OnlineEnum.Online;
             this.sqL_DataGridView_供應商資料.Password = "user82822040";
@@ -14886,7 +14888,7 @@
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 674F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 675F));
             this.tableLayoutPanel3.Controls.Add(this.label86, 0, 15);
             this.tableLayoutPanel3.Controls.Add(this.textBox_信箱設定_聯絡人, 2, 14);
             this.tableLayoutPanel3.Controls.Add(this.textBox_信箱設定_Email, 2, 13);
@@ -15079,7 +15081,7 @@
             this.label36.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label36.Location = new System.Drawing.Point(159, 1);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(668, 25);
+            this.label36.Size = new System.Drawing.Size(669, 25);
             this.label36.TabIndex = 2;
             this.label36.Text = "內容";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -18390,6 +18392,47 @@
             this.openFileDialog_LoadExcel.DefaultExt = "txt";
             this.openFileDialog_LoadExcel.Filter = "txt File (*.txt)|*.txt;";
             // 
+            // plC_Button_訂單管理_顯示異常訂購量
+            // 
+            this.plC_Button_訂單管理_顯示異常訂購量.AutoResetState = false;
+            this.plC_Button_訂單管理_顯示異常訂購量.BackgroundColor = System.Drawing.Color.RoyalBlue;
+            this.plC_Button_訂單管理_顯示異常訂購量.Bool = false;
+            this.plC_Button_訂單管理_顯示異常訂購量.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.plC_Button_訂單管理_顯示異常訂購量.BorderRadius = 10;
+            this.plC_Button_訂單管理_顯示異常訂購量.BorderSize = 0;
+            this.plC_Button_訂單管理_顯示異常訂購量.but_press = false;
+            this.plC_Button_訂單管理_顯示異常訂購量.buttonType = MyUI.RJ_Button.ButtonType.Toggle;
+            this.plC_Button_訂單管理_顯示異常訂購量.FlatAppearance.BorderSize = 0;
+            this.plC_Button_訂單管理_顯示異常訂購量.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.plC_Button_訂單管理_顯示異常訂購量.Font = new System.Drawing.Font("微軟正黑體", 15.75F);
+            this.plC_Button_訂單管理_顯示異常訂購量.Icon = System.Windows.Forms.MessageBoxIcon.Warning;
+            this.plC_Button_訂單管理_顯示異常訂購量.Location = new System.Drawing.Point(1379, 488);
+            this.plC_Button_訂單管理_顯示異常訂購量.Name = "plC_Button_訂單管理_顯示異常訂購量";
+            this.plC_Button_訂單管理_顯示異常訂購量.OFF_文字內容 = "顯示\n[異常訂購量]";
+            this.plC_Button_訂單管理_顯示異常訂購量.OFF_文字字體 = new System.Drawing.Font("微軟正黑體", 15.75F);
+            this.plC_Button_訂單管理_顯示異常訂購量.OFF_文字顏色 = System.Drawing.Color.White;
+            this.plC_Button_訂單管理_顯示異常訂購量.OFF_背景顏色 = System.Drawing.SystemColors.Control;
+            this.plC_Button_訂單管理_顯示異常訂購量.ON_文字內容 = "顯示\n[異常訂購量]";
+            this.plC_Button_訂單管理_顯示異常訂購量.ON_文字字體 = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.plC_Button_訂單管理_顯示異常訂購量.ON_文字顏色 = System.Drawing.Color.Black;
+            this.plC_Button_訂單管理_顯示異常訂購量.ON_背景顏色 = System.Drawing.SystemColors.Control;
+            this.plC_Button_訂單管理_顯示異常訂購量.Size = new System.Drawing.Size(158, 84);
+            this.plC_Button_訂單管理_顯示異常訂購量.State = false;
+            this.plC_Button_訂單管理_顯示異常訂購量.TabIndex = 36;
+            this.plC_Button_訂單管理_顯示異常訂購量.Text = "顯示\n[異常訂購量]";
+            this.plC_Button_訂單管理_顯示異常訂購量.TextColor = System.Drawing.Color.White;
+            this.plC_Button_訂單管理_顯示異常訂購量.Texts = "顯示\n[異常訂購量]";
+            this.plC_Button_訂單管理_顯示異常訂購量.UseVisualStyleBackColor = false;
+            this.plC_Button_訂單管理_顯示異常訂購量.字型鎖住 = false;
+            this.plC_Button_訂單管理_顯示異常訂購量.按鈕型態 = MyUI.PLC_RJ_Button.StatusEnum.保持型;
+            this.plC_Button_訂單管理_顯示異常訂購量.按鍵方式 = MyUI.PLC_RJ_Button.PressEnum.Mouse_左鍵;
+            this.plC_Button_訂單管理_顯示異常訂購量.文字鎖住 = false;
+            this.plC_Button_訂單管理_顯示異常訂購量.讀取位元反向 = false;
+            this.plC_Button_訂單管理_顯示異常訂購量.讀寫鎖住 = false;
+            this.plC_Button_訂單管理_顯示異常訂購量.音效 = true;
+            this.plC_Button_訂單管理_顯示異常訂購量.顯示 = false;
+            this.plC_Button_訂單管理_顯示異常訂購量.顯示狀態 = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -19774,6 +19817,7 @@
         private MyUI.PLC_RJ_Button plC_Button_訂單管理_匯出全部發票資料;
         private MyUI.PLC_RJ_Button plC_Button_訂單管理_匯出全部訂單資料;
         private System.Windows.Forms.CheckBox checkBox_下訂單_訂單編號_緊急;
+        private MyUI.PLC_RJ_Button plC_Button_訂單管理_顯示異常訂購量;
     }
 }
 

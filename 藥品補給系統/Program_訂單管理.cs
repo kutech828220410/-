@@ -16,7 +16,15 @@ namespace 藥品補給系統
         int 訂單管理_訂單列表_Data_Length = Enum.GetValues(typeof(訂單管理_訂單列表)).Length;
         enum 訂單管理_訂單列表 : int
         {
-            訂單編號, 供應商全名, 供應商聯絡人, 訂購日期, 訂購人, 訂購院所別, 驗收人, 驗收日期, 應驗收日期
+            訂單編號, 
+            供應商全名,
+            供應商聯絡人, 
+            訂購日期, 
+            訂購人, 
+            訂購院所別,
+            驗收人,
+            驗收日期, 
+            應驗收日期
         }
 
         PLC_Device PLC_超出驗收期限警報_黃 = new PLC_Device("D4001");
@@ -33,9 +41,11 @@ namespace 藥品補給系統
             this.sqL_DataGridView_訂單管理_訂單內容.DataGridRefreshEvent += SqL_DataGridView_訂單管理_訂單內容_DataGridRefreshEvent;
             this.plC_Button_訂單管理_匯出全部訂單資料.MouseDownEvent += PlC_Button_訂單管理_匯出全部訂單資料_MouseDownEvent;
             this.plC_Button_訂單管理_匯出全部發票資料.MouseDownEvent += PlC_Button_訂單管理_匯出全部發票資料_MouseDownEvent;
+            this.plC_Button_訂單管理_顯示異常訂購量.MouseDownEvent += PlC_Button_訂單管理_顯示異常訂購量_MouseDownEvent;
+
         }
 
- 
+   
 
         private void sub_Program_訂單管理()
         {
@@ -303,7 +313,7 @@ namespace 藥品補給系統
                 PLC_Program_訂單管理_資料搜尋.Bool = true;
             }
         }
-   
+     
         private void plC_Button_訂單管理_刪除選取訂單資料_btnClick(object sender, EventArgs e)
         {
 
@@ -355,7 +365,23 @@ namespace 藥品補給系統
                 }
             }
         }
-
+        private void PlC_Button_訂單管理_顯示異常訂購量_MouseDownEvent(MouseEventArgs mevent)
+        {
+            List<object[]> list_訂單資料 = this.sqL_DataGridView_訂單資料.SQL_GetAllRows(false);
+            List<object[]> list_訂單資料_buf = new List<object[]>();
+            int 訂購數量 = 0;
+            int 已入庫數量 = 0;
+            for (int i = 0; i < list_訂單資料.Count; i++)
+            {
+                訂購數量 = list_訂單資料[i][(int)enum_訂單資料.訂購數量].ObjectToString().StringToInt32();
+                已入庫數量 = list_訂單資料[i][(int)enum_訂單資料.已入庫數量].ObjectToString().StringToInt32();
+                if(已入庫數量 > 訂購數量)
+                {
+                    list_訂單資料_buf.Add(list_訂單資料[i]);
+                }
+            }
+            this.sqL_DataGridView_訂單管理_訂單內容.RefreshGrid(list_訂單資料_buf);
+        }
         private void sqL_DataGridView_訂單管理_訂單列表_DataGridRefreshEvent()
         {
             string 確認驗收 = "";
