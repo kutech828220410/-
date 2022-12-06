@@ -90,13 +90,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\0.DLL\LadderUI.dll</HintPath>
     </Reference>
-    <Reference Include="LicenseLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Release\LicenseLib.dll</HintPath>
-    </Reference>
-    <Reference Include="MeasureSystemUI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Release\MeasureSystemUI.dll</HintPath>
+    <Reference Include="LicenseLib">
+      <HintPath>..\0.DLL\LicenseLib.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -119,7 +114,7 @@
     </Reference>
     <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Release\MySql.Data.dll</HintPath>
+      <HintPath>..\0.DLL\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="MySqlBackup">
       <HintPath>..\0.DLL\MySqlBackup.dll</HintPath>

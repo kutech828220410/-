@@ -37,10 +37,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Basic">
-      <HintPath>..\高雄榮總屏東分院-藥品補給系統\bin\Release\Basic.dll</HintPath>
+      <HintPath>..\0.DLL\Basic.dll</HintPath>
     </Reference>
     <Reference Include="MyFtpUI">
-      <HintPath>..\高雄榮總屏東分院-藥品補給系統\bin\Release\MyFtpUI.dll</HintPath>
+      <HintPath>..\0.DLL\MyFtpUI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
