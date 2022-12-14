@@ -187,3 +187,8 @@ C:\Users\hsonds01\Source\Repos\OrderSystem\藥品補給系統\bin\Release\NPOI.d
 C:\Users\hsonds01\Source\Repos\OrderSystem\藥品補給系統\bin\Release\NPOI.OOXML.dll
 C:\Users\hsonds01\Source\Repos\OrderSystem\藥品補給系統\bin\Release\NPOI.OpenXml4Net.dll
 C:\Users\hsonds01\Source\Repos\OrderSystem\藥品補給系統\bin\Release\NPOI.OpenXmlFormats.dll
+C:\Users\User\Desktop\藥品補給系統\藥品補給系統\bin\Release\NPOI.dll
+C:\Users\User\Desktop\藥品補給系統\藥品補給系統\bin\Release\NPOI.OOXML.dll
+C:\Users\User\Desktop\藥品補給系統\藥品補給系統\bin\Release\NPOI.OpenXml4Net.dll
+C:\Users\User\Desktop\藥品補給系統\藥品補給系統\bin\Release\NPOI.OpenXmlFormats.dll
+C:\Users\User\Desktop\藥品補給系統\藥品補給系統\obj\Release\藥品補給系統.exe.config

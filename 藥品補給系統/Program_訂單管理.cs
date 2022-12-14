@@ -505,8 +505,9 @@ namespace 藥品補給系統
                     List<object[]> list_訂單資料_buf = new List<object[]>();
                     List<object[]> list_發票資料 = this.sqL_DataGridView_發票資料.SQL_GetAllRows(false);
                     List<object[]> list_發票資料_buf = new List<object[]>();
-
-                    for(int i = 0; i < list_訂單資料.Count; i++)
+                    List<object[]> list_供應商資料 = this.sqL_DataGridView_供應商資料.SQL_GetAllRows(false);
+                    List<object[]> list_供應商資料_buf = new List<object[]>();
+                    for (int i = 0; i < list_訂單資料.Count; i++)
                     {
                         object[] value = new object[new 訂單管理_匯出訂單().GetLength()];
                         value[(int)訂單管理_匯出訂單.訂單編號] = list_訂單資料[i][(int)enum_訂單資料.訂單編號];
@@ -519,6 +520,13 @@ namespace 藥品補給系統
                         value[(int)訂單管理_匯出訂單.已入庫數量] = list_訂單資料[i][(int)enum_訂單資料.已入庫數量];
                         value[(int)訂單管理_匯出訂單.訂購單價] = list_訂單資料[i][(int)enum_訂單資料.訂購單價];
                         value[(int)訂單管理_匯出訂單.訂購總價] = list_訂單資料[i][(int)enum_訂單資料.訂購總價];
+
+                        list_供應商資料_buf = list_供應商資料.GetRows((int)enum_供應商資料.全名, list_訂單資料[i][(int)enum_訂單資料.供應商全名].ObjectToString());
+                        if (list_供應商資料_buf.Count > 0)
+                        {
+                            value[(int)訂單管理_匯出訂單.賣方統一編號] = list_供應商資料_buf[0][(int)enum_供應商資料.統一編號];
+                        }
+                     
                         value[(int)訂單管理_匯出訂單.效期] = list_訂單資料[i][(int)enum_訂單資料.效期];
                         value[(int)訂單管理_匯出訂單.批號] = list_訂單資料[i][(int)enum_訂單資料.批號];
                         if (value[(int)訂單管理_匯出訂單.已入庫數量].StringToInt32() != value[(int)訂單管理_匯出訂單.訂購數量].StringToInt32())

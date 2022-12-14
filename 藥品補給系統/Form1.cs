@@ -16,8 +16,8 @@ using SQLUI;
 using System.Diagnostics;//記得取用 FileVersionInfo繼承
 using System.Reflection;//記得取用 Assembly繼承
 
-[assembly: AssemblyVersion("1.0.161")]
-[assembly: AssemblyFileVersion("1.0.161")]
+[assembly: AssemblyVersion("1.0.162")]
+[assembly: AssemblyFileVersion("1.0.162")]
 namespace 藥品補給系統
 {
     public partial class Form1 : Form
