@@ -520,7 +520,7 @@ namespace 藥品補給系統
             sub_Program_系統更新();
         }
         #region 系統更新
-        PLC_Device PLC_Device_系統更新 = new PLC_Device("S4055");
+        PLC_Device PLC_Device_系統更新 = new PLC_Device("M8001");
         int cnt_Program_系統更新 = 65534;
         void sub_Program_系統更新()
         {

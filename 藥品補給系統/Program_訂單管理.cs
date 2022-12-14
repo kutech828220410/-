@@ -26,7 +26,33 @@ namespace 藥品補給系統
             驗收日期, 
             應驗收日期
         }
-
+        enum 訂單管理_匯出訂單 : int
+        {
+            訂單編號,
+            藥品碼,
+            藥品名稱,
+            單位,
+            訂購日期,
+            訂購人,
+            訂購數量,
+            已入庫數量,
+            訂購單價,
+            訂購總價,
+            發票號碼,
+            發票日期,
+            登錄時間,
+            數量,
+            單價,
+            總價,
+            折讓金額,
+            折讓後單價,
+            前次驗收折讓後單價,
+            賣方統一編號,
+            入庫人,
+            入庫日期,
+            效期,
+            批號,
+        }
         PLC_Device PLC_超出驗收期限警報_黃 = new PLC_Device("D4001");
         PLC_Device PLC_超出驗收期限警報_紅 = new PLC_Device("D4002");
 
@@ -427,33 +453,119 @@ namespace 藥品補給系統
 
                 DataTable datatable = new DataTable();
                 datatable = this.sqL_DataGridView_訂單資料.SQL_GetAllRows(false).ToDataTable(new enum_訂單資料());
-                CSVHelper.SaveFile(datatable, saveFileDialog_SaveExcel.FileName);
+
+                string Extension = System.IO.Path.GetExtension(this.saveFileDialog_SaveExcel.FileName);
+                if (Extension == ".txt")
+                {
+                    CSVHelper.SaveFile(datatable, this.saveFileDialog_SaveExcel.FileName);
+                }
+                else if (Extension == ".xls")
+                {
+                    MyOffice.ExcelClass.SaveFile(datatable, this.saveFileDialog_SaveExcel.FileName);
+                }
+
                 MyMessageBox.ShowDialog("匯出完成!");
             }
         }
         private void PlC_Button_訂單管理_匯出全部發票資料_MouseDownEvent(MouseEventArgs mevent)
         {
             saveFileDialog_SaveExcel.OverwritePrompt = false;
-            if (saveFileDialog_SaveExcel.ShowDialog(this) == DialogResult.OK)
+            this.Invoke(new Action(delegate 
             {
+                if (saveFileDialog_SaveExcel.ShowDialog(this) == DialogResult.OK)
+                {
 
-                DataTable datatable = new DataTable();
-                datatable = this.sqL_DataGridView_發票資料.SQL_GetAllRows(false).ToDataTable(new enum_發票資料());
-                CSVHelper.SaveFile(datatable, saveFileDialog_SaveExcel.FileName);
-                MyMessageBox.ShowDialog("匯出完成!");
-            }
+                    DataTable datatable = new DataTable();
+                    datatable = this.sqL_DataGridView_發票資料.SQL_GetAllRows(false).ToDataTable(new enum_發票資料());
+                    string Extension = System.IO.Path.GetExtension(this.saveFileDialog_SaveExcel.FileName);
+                    if (Extension == ".txt")
+                    {
+                        CSVHelper.SaveFile(datatable, this.saveFileDialog_SaveExcel.FileName);
+                    }
+                    else if (Extension == ".xls")
+                    {
+                        MyOffice.ExcelClass.SaveFile(datatable, this.saveFileDialog_SaveExcel.FileName);
+                    }
+                    MyMessageBox.ShowDialog("匯出完成!");
+                }
+            }));
+          
         }
         private void PlC_Button_訂單管理_匯出全部訂單資料_MouseDownEvent(MouseEventArgs mevent)
         {
-            saveFileDialog_SaveExcel.OverwritePrompt = false;
-            if (saveFileDialog_SaveExcel.ShowDialog(this) == DialogResult.OK)
+            this.Invoke(new Action(delegate 
             {
+                saveFileDialog_SaveExcel.OverwritePrompt = false;
+                if (saveFileDialog_SaveExcel.ShowDialog(this) == DialogResult.OK)
+                {
 
-                DataTable datatable = new DataTable();
-                datatable = this.sqL_DataGridView_訂單資料.SQL_GetAllRows(false).ToDataTable(new enum_訂單資料());
-                CSVHelper.SaveFile(datatable, saveFileDialog_SaveExcel.FileName);
-                MyMessageBox.ShowDialog("匯出完成!");
-            }
+                    DataTable datatable = new DataTable();
+                    List<object[]> list_value = new List<object[]>();
+                    List<object[]> list_訂單資料 = this.sqL_DataGridView_訂單資料.SQL_GetAllRows(false);
+                    List<object[]> list_訂單資料_buf = new List<object[]>();
+                    List<object[]> list_發票資料 = this.sqL_DataGridView_發票資料.SQL_GetAllRows(false);
+                    List<object[]> list_發票資料_buf = new List<object[]>();
+
+                    for(int i = 0; i < list_訂單資料.Count; i++)
+                    {
+                        object[] value = new object[new 訂單管理_匯出訂單().GetLength()];
+                        value[(int)訂單管理_匯出訂單.訂單編號] = list_訂單資料[i][(int)enum_訂單資料.訂單編號];
+                        value[(int)訂單管理_匯出訂單.藥品碼] = list_訂單資料[i][(int)enum_訂單資料.藥品碼];
+                        value[(int)訂單管理_匯出訂單.藥品名稱] = list_訂單資料[i][(int)enum_訂單資料.藥品名稱];
+                        value[(int)訂單管理_匯出訂單.單位] = list_訂單資料[i][(int)enum_訂單資料.單位];
+                        value[(int)訂單管理_匯出訂單.訂購日期] = list_訂單資料[i][(int)enum_訂單資料.訂購日期];
+                        value[(int)訂單管理_匯出訂單.訂購人] = list_訂單資料[i][(int)enum_訂單資料.訂購人];
+                        value[(int)訂單管理_匯出訂單.訂購數量] = list_訂單資料[i][(int)enum_訂單資料.訂購數量];
+                        value[(int)訂單管理_匯出訂單.已入庫數量] = list_訂單資料[i][(int)enum_訂單資料.已入庫數量];
+                        value[(int)訂單管理_匯出訂單.訂購單價] = list_訂單資料[i][(int)enum_訂單資料.訂購單價];
+                        value[(int)訂單管理_匯出訂單.訂購總價] = list_訂單資料[i][(int)enum_訂單資料.訂購總價];
+                        value[(int)訂單管理_匯出訂單.效期] = list_訂單資料[i][(int)enum_訂單資料.效期];
+                        value[(int)訂單管理_匯出訂單.批號] = list_訂單資料[i][(int)enum_訂單資料.批號];
+                        if (value[(int)訂單管理_匯出訂單.已入庫數量].StringToInt32() != value[(int)訂單管理_匯出訂單.訂購數量].StringToInt32())
+                        {
+                            list_訂單資料_buf.Add(value);
+                        }
+                    }
+                    for (int i = 0; i < list_發票資料.Count; i++)
+                    {
+                        object[] value = new object[new 訂單管理_匯出訂單().GetLength()];
+                        value[(int)訂單管理_匯出訂單.訂單編號] = list_發票資料[i][(int)enum_發票資料.訂單編號];
+                        value[(int)訂單管理_匯出訂單.藥品碼] = list_發票資料[i][(int)enum_發票資料.藥品碼];
+                        value[(int)訂單管理_匯出訂單.藥品名稱] = list_發票資料[i][(int)enum_發票資料.藥品名稱];
+                        value[(int)訂單管理_匯出訂單.發票號碼] = list_發票資料[i][(int)enum_發票資料.發票號碼];
+                        value[(int)訂單管理_匯出訂單.發票日期] = list_發票資料[i][(int)enum_發票資料.發票日期];
+                        value[(int)訂單管理_匯出訂單.登錄時間] = list_發票資料[i][(int)enum_發票資料.登錄時間];
+                        value[(int)訂單管理_匯出訂單.數量] = list_發票資料[i][(int)enum_發票資料.數量];
+                        value[(int)訂單管理_匯出訂單.單價] = list_發票資料[i][(int)enum_發票資料.單價];
+                        value[(int)訂單管理_匯出訂單.總價] = list_發票資料[i][(int)enum_發票資料.總價];
+                        value[(int)訂單管理_匯出訂單.折讓金額] = list_發票資料[i][(int)enum_發票資料.折讓金額];
+                        value[(int)訂單管理_匯出訂單.折讓後單價] = list_發票資料[i][(int)enum_發票資料.折讓後單價];
+                        value[(int)訂單管理_匯出訂單.前次驗收折讓後單價] = list_發票資料[i][(int)enum_發票資料.前次驗收折讓後單價];
+                        value[(int)訂單管理_匯出訂單.賣方統一編號] = list_發票資料[i][(int)enum_發票資料.賣方統一編號];
+                        value[(int)訂單管理_匯出訂單.入庫人] = list_發票資料[i][(int)enum_發票資料.入庫人];
+                        value[(int)訂單管理_匯出訂單.入庫日期] = list_發票資料[i][(int)enum_發票資料.入庫日期];
+                        value[(int)訂單管理_匯出訂單.效期] = list_發票資料[i][(int)enum_發票資料.效期];
+                        value[(int)訂單管理_匯出訂單.批號] = list_發票資料[i][(int)enum_發票資料.批號];
+                        list_發票資料_buf.Add(value);
+                    }
+
+                    list_value.LockAdd(list_訂單資料_buf);
+                    list_value.LockAdd(list_發票資料_buf);
+                    list_value.Sort(new ICP_訂單管理_匯出訂單());
+                    datatable = list_value.ToDataTable(new 訂單管理_匯出訂單());
+                    string Extension = System.IO.Path.GetExtension(this.saveFileDialog_SaveExcel.FileName);
+                    if (Extension == ".txt")
+                    {
+                        CSVHelper.SaveFile(datatable, this.saveFileDialog_SaveExcel.FileName);
+                    }
+                    else if (Extension == ".xls")
+                    {
+                        MyOffice.ExcelClass.NPOI_SaveFile(datatable, this.saveFileDialog_SaveExcel.FileName);
+                    }
+                    MyMessageBox.ShowDialog("匯出完成!");
+                }
+            }));
+           
         }
         private void plC_Button_訂單管理_逾時罰金編輯_btnClick(object sender, EventArgs e)
         {
@@ -483,5 +595,22 @@ namespace 藥品補給系統
             }
         }
         #endregion
+        public class ICP_訂單管理_匯出訂單 : IComparer<object[]>
+        {
+            //實作Compare方法
+            //依Speed由小排到大。
+            public int Compare(object[] x, object[] y)
+            {
+                string temp0 = x[(int)訂單管理_匯出訂單.訂單編號].ObjectToString();
+                string temp1= y[(int)訂單管理_匯出訂單.訂單編號].ObjectToString();
+                int compare = string.Compare(temp0, temp1);
+                if (compare != 0) return compare;
+                temp0 = x[(int)訂單管理_匯出訂單.藥品碼].ObjectToString();
+                temp1 = y[(int)訂單管理_匯出訂單.藥品碼].ObjectToString();
+                compare = string.Compare(temp0, temp1);
+                return compare;
+
+            }
+        }
     }
 }
