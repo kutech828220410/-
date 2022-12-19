@@ -991,6 +991,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.saveFileDialog_SaveExcel = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog_LoadExcel = new System.Windows.Forms.OpenFileDialog();
+            this.button_參數資料設定GUID = new System.Windows.Forms.Button();
             this.plC_ScreenPage1.SuspendLayout();
             this.下訂單.SuspendLayout();
             this.groupBox13.SuspendLayout();
@@ -14929,7 +14930,7 @@
             this.tableLayoutPanel3.ColumnCount = 3;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 682F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 683F));
             this.tableLayoutPanel3.Controls.Add(this.label86, 0, 15);
             this.tableLayoutPanel3.Controls.Add(this.textBox_信箱設定_聯絡人, 2, 14);
             this.tableLayoutPanel3.Controls.Add(this.textBox_信箱設定_Email, 2, 13);
@@ -15122,7 +15123,7 @@
             this.label36.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label36.Location = new System.Drawing.Point(159, 1);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(676, 25);
+            this.label36.Size = new System.Drawing.Size(677, 25);
             this.label36.TabIndex = 2;
             this.label36.Text = "內容";
             this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -16827,6 +16828,7 @@
             // 
             // 暫存區
             // 
+            this.暫存區.Controls.Add(this.button_參數資料設定GUID);
             this.暫存區.Controls.Add(this.button_重新修正已採購總價);
             this.暫存區.Controls.Add(this.groupBox58);
             this.暫存區.Controls.Add(this.groupBox54);
@@ -18434,6 +18436,15 @@
             this.openFileDialog_LoadExcel.DefaultExt = "txt";
             this.openFileDialog_LoadExcel.Filter = "txt File (*.txt)|*.txt;";
             // 
+            // button_參數資料設定GUID
+            // 
+            this.button_參數資料設定GUID.Location = new System.Drawing.Point(1676, 419);
+            this.button_參數資料設定GUID.Name = "button_參數資料設定GUID";
+            this.button_參數資料設定GUID.Size = new System.Drawing.Size(212, 83);
+            this.button_參數資料設定GUID.TabIndex = 26;
+            this.button_參數資料設定GUID.Text = "參數資料設定GUID";
+            this.button_參數資料設定GUID.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -19819,6 +19830,7 @@
         private MyUI.PLC_RJ_Button plC_Button_訂單管理_匯出全部訂單資料;
         private System.Windows.Forms.CheckBox checkBox_下訂單_訂單編號_緊急;
         private MyUI.PLC_RJ_Button plC_Button_訂單管理_顯示異常訂購量;
+        private System.Windows.Forms.Button button_參數資料設定GUID;
     }
 }
 

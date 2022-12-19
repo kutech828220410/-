@@ -53,12 +53,16 @@ namespace 藥品補給系統
                     this.sqL_DataGridView_參數資料.SQL_AddRow(new object[] { value, "" }, true);
                 }
             }
-
+            
 
             //this.sqL_DataGridView_參數資料.RowDoubleClickEvent += sqL_DataGridView_參數資料_RowDoubleClickEvent;
             //this.sqL_DataGridView_參數資料.DataGridRefreshEvent += sqL_DataGridView_參數資料_DataGridRefreshEvent;
              this.sqL_DataGridView_參數資料.SQL_GetAllRows(true);
+            this.button_參數資料設定GUID.Click += Button_參數資料設定GUID_Click;
         }
+
+   
+
         private void sub_Program_參數資料()
         {
             sub_Program_設定SQL參數設定();
@@ -326,5 +330,17 @@ namespace 藥品補給系統
             cnt++;
         }
         #endregion
+
+        private void Button_參數資料設定GUID_Click(object sender, EventArgs e)
+        {
+            List<object[]> list_value = this.sqL_DataGridView_參數資料.SQL_GetAllRows(false);
+            for (int i = 0; i < list_value.Count; i++)
+            {
+                list_value[i][(int)enum_參數資料.GUID] = Guid.NewGuid().ToString();
+            }
+            this.sqL_DataGridView_參數資料.SQL_CreateTable();
+            this.sqL_DataGridView_參數資料.SQL_AddRows(list_value, true);
+
+        }
     }
 }
