@@ -502,9 +502,10 @@ namespace 藥品補給系統
                     DataTable datatable = new DataTable();
                     List<object[]> list_value = new List<object[]>();
                     List<object[]> list_訂單資料 = this.sqL_DataGridView_訂單資料.SQL_GetAllRows(false);
+                    List<object[]> list_訂單資料_add = new List<object[]>();
                     List<object[]> list_訂單資料_buf = new List<object[]>();
                     List<object[]> list_發票資料 = this.sqL_DataGridView_發票資料.SQL_GetAllRows(false);
-                    List<object[]> list_發票資料_buf = new List<object[]>();
+                    List<object[]> list_發票資料_add = new List<object[]>();
                     List<object[]> list_供應商資料 = this.sqL_DataGridView_供應商資料.SQL_GetAllRows(false);
                     List<object[]> list_供應商資料_buf = new List<object[]>();
                     for (int i = 0; i < list_訂單資料.Count; i++)
@@ -531,7 +532,7 @@ namespace 藥品補給系統
                         value[(int)訂單管理_匯出訂單.批號] = list_訂單資料[i][(int)enum_訂單資料.批號];
                         if (value[(int)訂單管理_匯出訂單.已入庫數量].StringToInt32() != value[(int)訂單管理_匯出訂單.訂購數量].StringToInt32())
                         {
-                            list_訂單資料_buf.Add(value);
+                            list_訂單資料_add.Add(value);
                         }
                     }
                     for (int i = 0; i < list_發票資料.Count; i++)
@@ -550,15 +551,28 @@ namespace 藥品補給系統
                         value[(int)訂單管理_匯出訂單.折讓後單價] = list_發票資料[i][(int)enum_發票資料.折讓後單價];
                         value[(int)訂單管理_匯出訂單.前次驗收折讓後單價] = list_發票資料[i][(int)enum_發票資料.前次驗收折讓後單價];
                         value[(int)訂單管理_匯出訂單.賣方統一編號] = list_發票資料[i][(int)enum_發票資料.賣方統一編號];
+                        if (value[(int)訂單管理_匯出訂單.賣方統一編號].ObjectToString().StringIsEmpty())
+                        {
+                            list_訂單資料_buf = list_訂單資料.GetRows((int)enum_訂單資料.訂單編號, value[(int)訂單管理_匯出訂單.訂單編號].ObjectToString());
+                            list_訂單資料_buf = list_訂單資料_buf.GetRows((int)enum_訂單資料.藥品碼, value[(int)訂單管理_匯出訂單.藥品碼].ObjectToString());
+                            if(list_訂單資料_buf.Count > 0)
+                            {
+                                list_供應商資料_buf = list_供應商資料.GetRows((int)enum_供應商資料.全名, list_訂單資料_buf[0][(int)enum_訂單資料.供應商全名].ObjectToString());
+                                if (list_供應商資料_buf.Count > 0)
+                                {
+                                    value[(int)訂單管理_匯出訂單.賣方統一編號] = list_供應商資料_buf[0][(int)enum_供應商資料.統一編號];
+                                }
+                            }
+                        }
                         value[(int)訂單管理_匯出訂單.入庫人] = list_發票資料[i][(int)enum_發票資料.入庫人];
                         value[(int)訂單管理_匯出訂單.入庫日期] = list_發票資料[i][(int)enum_發票資料.入庫日期];
                         value[(int)訂單管理_匯出訂單.效期] = list_發票資料[i][(int)enum_發票資料.效期];
                         value[(int)訂單管理_匯出訂單.批號] = list_發票資料[i][(int)enum_發票資料.批號];
-                        list_發票資料_buf.Add(value);
+                        list_發票資料_add.Add(value);
                     }
 
-                    list_value.LockAdd(list_訂單資料_buf);
-                    list_value.LockAdd(list_發票資料_buf);
+                    list_value.LockAdd(list_訂單資料_add);
+                    list_value.LockAdd(list_發票資料_add);
                     list_value.Sort(new ICP_訂單管理_匯出訂單());
                     datatable = list_value.ToDataTable(new 訂單管理_匯出訂單());
                     string Extension = System.IO.Path.GetExtension(this.saveFileDialog_SaveExcel.FileName);
