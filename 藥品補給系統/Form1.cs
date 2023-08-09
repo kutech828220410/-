@@ -16,8 +16,8 @@ using SQLUI;
 using System.Diagnostics;//記得取用 FileVersionInfo繼承
 using System.Reflection;//記得取用 Assembly繼承
 
-[assembly: AssemblyVersion("1.0.163")]
-[assembly: AssemblyFileVersion("1.0.163")]
+[assembly: AssemblyVersion("1.0.164")]
+[assembly: AssemblyFileVersion("1.0.164")]
 namespace 藥品補給系統
 {
     public partial class Form1 : Form
@@ -208,7 +208,7 @@ namespace 藥品補給系統
             LoadFtpConfig();
 
 
-            dBConfigClass.DB_person_page.IP = "10.17.9.10";
+            dBConfigClass.DB_person_page.IP = "10.18.1.146";
             dBConfigClass.DB_person_page.DataBaseName = DataBaseName;
             dBConfigClass.DB_person_page.UserName = UserName;
             dBConfigClass.DB_person_page.Password = Password;
